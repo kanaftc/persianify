@@ -1064,6 +1064,7 @@
 }
 .peb-calc-root .peb-accordion-content p {
     margin-bottom: 0.75rem;
+    color: #E8EDF5;
 }
 .peb-calc-root .peb-accordion-content strong {
     color: var(--peb-text-primary);
@@ -1454,30 +1455,7 @@
     var $ = function(sel, ctx) { return (ctx || document).querySelector(sel); };
     var $$ = function(sel, ctx) { return (ctx || document).querySelectorAll(sel); };
     
-    var els = {
-        slider: $('#surface-slider'),
-        input: $('#surface-input'),
-        floating: $('.peb-surface-floating'),
-        price: $('#current-price'),
-        minLabel: $('#min-label'),
-        maxLabel: $('#max-label'),
-        cta: $('#cta-button'),
-        calendar: $('#calendar-icon'),
-        modal: $('#info-modal'),
-        modalBody: $('#modal-body'),
-        badge: $('#premium-badge'),
-        modalClose: $('.peb-modal-close'),
-        tabs: $('.peb-tabs'),
-        card: $('.peb-calc-card'),
-        sliderContainer: $('.peb-slider-container'),
-        stepperMinus: $('#stepper-minus'),
-        stepperPlus: $('#stepper-plus'),
-        panels: {
-            appartement: $('#panel-appartement'),
-            duplex: $('#panel-duplex'),
-            maison: $('#panel-maison')
-        }
-    };
+    var els = {};
     
     var getConfig = function() { return CONFIG[currentType]; };
     
@@ -1820,7 +1798,7 @@
         var cfg = getConfig();
         var surface = parseInt(els.slider.value);
         var price = calculatePrice(surface);
-        
+
         try {
             sessionStorage.setItem('peb_calc', JSON.stringify({
                 type: cfg.label,
@@ -1829,8 +1807,12 @@
                 code: 'peb_calc_cta'
             }));
         } catch(e) {}
-        
-        window.location.href = 'https://pebify.be/contact/#form';
+
+        var params = '?type=' + encodeURIComponent(cfg.label)
+            + '&surface=' + surface
+            + '&price=' + price
+            + '&code=peb_calc_cta';
+        window.location.href = 'https://pebify.be/contact/' + params + '#form';
     }
     
     function initUI() {
@@ -1853,6 +1835,29 @@
     }
     
     function init() {
+        els.slider = $('#surface-slider');
+        els.input = $('#surface-input');
+        els.floating = $('.peb-surface-floating');
+        els.price = $('#current-price');
+        els.minLabel = $('#min-label');
+        els.maxLabel = $('#max-label');
+        els.cta = $('#cta-button');
+        els.calendar = $('#calendar-icon');
+        els.modal = $('#info-modal');
+        els.modalBody = $('#modal-body');
+        els.badge = $('#premium-badge');
+        els.modalClose = $('.peb-modal-close');
+        els.tabs = $('.peb-tabs');
+        els.card = $('.peb-calc-card');
+        els.sliderContainer = $('.peb-slider-container');
+        els.stepperMinus = $('#stepper-minus');
+        els.stepperPlus = $('#stepper-plus');
+        els.panels = {
+            appartement: $('#panel-appartement'),
+            duplex: $('#panel-duplex'),
+            maison: $('#panel-maison')
+        };
+
         initCalendar();
         initUI();
         
@@ -1905,8 +1910,8 @@
             updateUIRealtime();
         }
         
-        els.stepperMinus.addEventListener('click', function() { adjustSurface(-5); });
-        els.stepperPlus.addEventListener('click', function() { adjustSurface(5); });
+        els.stepperMinus.addEventListener('click', function() { adjustSurface(-1); });
+        els.stepperPlus.addEventListener('click', function() { adjustSurface(1); });
         
         els.tabs.addEventListener('click', function(e) {
             var tab = e.target.closest('.peb-tab');
@@ -1983,6 +1988,10 @@
         });
     }
     
-    init();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();
 </script>
