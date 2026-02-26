@@ -1,0 +1,1767 @@
+<link rel="preload" as="image" href="https://pebify.be/wp-content/uploads/2025/10/logo-pebify-peb-bruxelles-badge.webp" type="image/webp">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="icon-building" viewBox="0 0 512 512">
+        <path d="M448 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h384c35.35 0 64-28.65 64-64V96c0-35.35-28.65-64-64-64zm-144 96c17.67 0 32 14.33 32 32s-14.33 32-32 32-32-14.33-32-32 14.33-32 32-32zm-128 0c17.67 0 32 14.33 32 32s-14.33 32-32 32-32-14.33-32-32 14.33-32 32-32zm128 160c17.67 0 32 14.33 32 32s-14.33 32-32 32-32-14.33-32-32 14.33-32 32-32zm-128 0c17.67 0 32 14.33 32 32s-14.33 32-32 32-32-14.33-32-32 14.33-32 32-32zM448 416H64V96h384v320z"/>
+    </symbol>
+    <symbol id="icon-stairs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square">
+        <path d="M 3 20 L 3 16 L 8 16 L 8 12 L 13 12 L 13 8 L 18 8 L 18 4 L 22 4"/>
+    </symbol>
+    <symbol id="icon-home" viewBox="0 0 576 512">
+        <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31.02a12 12 0 0 0 16.9 1.6l210.37-173.1a48 48 0 0 1 61 0l210.36 173.1a12 12 0 0 0 16.9-1.6l25.5-31.02a12 12 0 0 0-1.6-16.9z"/>
+    </symbol>
+    <symbol id="icon-info" viewBox="0 0 512 512">
+        <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 320 512">
+        <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+    </symbol>
+    <symbol id="icon-minus" viewBox="0 0 448 512">
+        <path d="M432 256c0 17.7-14.3 32-32 32H48c-17.7 0-32-14.3-32-32s14.3-32 32-32h352c17.7 0 32 14.3 32 32z"/>
+    </symbol>
+    <symbol id="icon-plus" viewBox="0 0 448 512">
+        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32v144H48c-17.7 0-32 14.3-32 32s14.3 32 32 32h144v144c0 17.7 14.3 32 32 32s32-14.3 32-32V288h144c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+    </symbol>
+</svg>
+<style>
+/* ==========================================================================
+   PEBIFY CALCULATEUR PEB — Version 2.0 Optimisee
+   ========================================================================== */
+.peb-calc-root {
+    --peb-navy-900: #1A2332;
+    --peb-navy-850: #202C3D;
+    --peb-navy-800: #2C3E50;
+    --peb-green-500: #339966;
+    --peb-green-300: #3BC97F;
+    --peb-green-text: #D6F3C2;
+    --peb-gold-500: #FFD700;
+    --peb-gold-600: #FFC700;
+    --peb-red: #EF4444;
+    --peb-text-primary: #F8FAFC;
+    --peb-text-secondary: #C1CAD6;
+    --peb-text-muted: #8B95A5;
+    --peb-surface-card: var(--peb-navy-850);
+    --peb-surface-input: rgba(28, 38, 54, 0.95);
+    --peb-border-soft: rgba(255,255,255,0.12);
+    --peb-shadow-card: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05);
+    --peb-shadow-gold: 0 8px 25px rgba(255, 199, 0, 0.45);
+    --peb-shadow-green: 0 8px 25px rgba(59, 201, 127, 0.45);
+    --peb-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --peb-transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --peb-thumb-size: 60px;
+    --peb-slider-track-height: 16px;
+    --peb-slider-progress: 0%;
+    --peb-pebify-logo: url('https://pebify.be/wp-content/uploads/2025/10/logo-pebify-peb-bruxelles-badge.webp');
+    font-family: 'Poppins', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: linear-gradient(135deg, var(--peb-navy-900) 0%, var(--peb-navy-850) 100%);
+    color: var(--peb-text-primary);
+    padding: 2rem 1rem;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
+    isolation: isolate;
+}
+.peb-calc-root *, .peb-calc-root *::before, .peb-calc-root *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.peb-calc-root .visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+.peb-calc-root a {
+    color: var(--peb-gold-500);
+    text-decoration: none;
+    transition: color var(--peb-transition);
+}
+.peb-calc-root a:hover {
+    color: var(--peb-gold-600);
+    text-decoration: underline;
+}
+.peb-calc-root :focus-visible {
+    outline: 3px solid var(--peb-gold-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+.peb-calc-root :focus:not(:focus-visible) {
+    outline: none;
+}
+.peb-calc-root ul,
+.peb-calc-root ol {
+    list-style: none !important;
+    list-style-type: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+.peb-calc-root li {
+    list-style: none !important;
+    list-style-type: none !important;
+}
+.peb-calc-root li::marker {
+    content: none !important;
+    display: none !important;
+    font-size: 0 !important;
+}
+.peb-calc-root li::before,
+.peb-calc-root li::after {
+    content: none !important;
+}
+.peb-calc-root .peb-modal-section li::before,
+.peb-calc-root .peb-accordion-content li::before {
+    content: '\2713' !important;
+    position: absolute;
+    left: 0;
+    color: var(--peb-green-300);
+    font-weight: 900;
+}
+@keyframes peb-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+@keyframes peb-toast-in {
+    from { transform: translateX(-50%) translateY(-100%); opacity: 0; }
+    to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+@keyframes peb-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+@keyframes peb-slot {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    30% { transform: translateY(-12px) scale(0.96); opacity: 0.7; }
+    60% { transform: translateY(8px) scale(1.04); opacity: 0.85; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+@keyframes peb-shine {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+@keyframes peb-badge-glow {
+    0%, 100% { box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4); }
+    50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.7); }
+}
+.peb-calc-root .peb-calculator-column {
+    background: var(--peb-navy-800);
+    border-radius: 32px;
+    padding: 3rem 2rem;
+    box-shadow: var(--peb-shadow-card);
+    border: 1px solid rgba(255,255,255,0.06);
+    max-width: 640px;
+    width: 100%;
+    position: relative;
+}
+.peb-calc-root .peb-calculator-wrapper {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+}
+.peb-calc-root .peb-calc-with-tabs {
+    position: relative;
+    margin-top: 3rem;
+}
+.peb-calc-root .peb-tabs {
+    display: flex;
+    gap: 0.25rem;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    right: 0;
+    padding: 0 1.5rem;
+    z-index: 5;
+    align-items: flex-end;
+}
+.peb-calc-root .peb-tab {
+    flex: 1;
+    padding: 0.75rem 0.5rem 1rem;
+    background: rgba(44,62,80,0.65);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    color: var(--peb-text-secondary);
+    font-size: clamp(0.7rem, 2vw, 0.85rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: all var(--peb-transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    min-height: 68px;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
+.peb-calc-root .peb-tab::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    transition: background var(--peb-transition-smooth);
+}
+.peb-calc-root .peb-tab-label {
+    white-space: normal;
+    line-height: 1.2;
+    min-height: 2.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.peb-calc-root .peb-tab-icon {
+    width: clamp(1.1rem, 2.8vw, 1.3rem);
+    height: clamp(1.1rem, 2.8vw, 1.3rem);
+    transition: all var(--peb-transition-smooth);
+    fill: currentColor;
+}
+.peb-calc-root .peb-tab-icon.stroke-icon {
+    fill: none;
+    stroke: currentColor;
+}
+.peb-calc-root .peb-tab:hover {
+    background: rgba(51, 153, 102, 0.3);
+    color: var(--peb-text-primary);
+    transform: translateY(-3px);
+}
+.peb-calc-root .peb-tab:hover .peb-tab-icon {
+    color: var(--peb-gold-500);
+    fill: var(--peb-gold-500);
+    transform: scale(1.1);
+}
+.peb-calc-root .peb-tab:hover .peb-tab-icon.stroke-icon {
+    fill: none;
+    stroke: var(--peb-gold-500);
+}
+.peb-calc-root .peb-tab.active {
+    background: var(--peb-surface-card);
+    color: var(--peb-text-primary);
+    transform: translateY(0);
+    z-index: 6;
+    border-color: var(--peb-border-soft);
+    font-weight: 700;
+    box-shadow: 0 -4px 12px rgba(51, 153, 102, 0.2);
+}
+.peb-calc-root .peb-tab.active::before {
+    background: var(--peb-gold-500);
+}
+.peb-calc-root .peb-tab.active .peb-tab-icon {
+    width: clamp(1.3rem, 3.2vw, 1.5rem);
+    height: clamp(1.3rem, 3.2vw, 1.5rem);
+    color: var(--peb-green-300);
+    fill: var(--peb-green-300);
+    transform: translateY(-2px);
+}
+.peb-calc-root .peb-tab.active .peb-tab-icon.stroke-icon {
+    fill: none;
+    stroke: var(--peb-green-300);
+}
+.peb-calc-root .peb-tab.active .peb-tab-label {
+    font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+    color: var(--peb-green-text);
+}
+.peb-calc-root .peb-premium-badge {
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, var(--peb-gold-500) 0%, var(--peb-gold-600) 100%);
+    color: var(--peb-navy-900);
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    font-size: clamp(0.6rem, 1.6vw, 0.75rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all var(--peb-transition-smooth);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    z-index: 11;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+}
+.peb-calc-root .peb-premium-badge.positioned {
+    opacity: 1;
+    pointer-events: all;
+    animation: peb-badge-glow 2s infinite ease-in-out;
+}
+.peb-calc-root .peb-premium-badge:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+    animation: none;
+}
+.peb-calc-root .peb-premium-badge .badge-icon {
+    width: clamp(0.7rem, 1.8vw, 0.85rem);
+    height: clamp(0.7rem, 1.8vw, 0.85rem);
+    fill: currentColor;
+    flex-shrink: 0;
+}
+.peb-calc-root .peb-tabpanels > [role="tabpanel"][hidden] {
+    display: none !important;
+}
+.peb-calc-root .peb-calc-card {
+    background: var(--peb-surface-card);
+    border: 1px solid var(--peb-border-soft);
+    border-radius: 24px;
+    box-shadow: var(--peb-shadow-card);
+    padding: 3.5rem 1.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all var(--peb-transition-smooth);
+}
+.peb-calc-root .peb-calc-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 450px;
+}
+.peb-calc-root .peb-slider-zone {
+    margin: 0.5rem 0 1rem;
+    padding-top: 1.5rem;
+}
+.peb-calc-root .peb-slider-container {
+    position: relative;
+    padding: 10rem 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.peb-calc-root .peb-surface-floating {
+    position: absolute;
+    top: 20px;
+    left: var(--floating-position, 50%);
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    z-index: 0;
+    transition: left 0.08s ease-out;
+    pointer-events: none;
+}
+.peb-calc-root .peb-surface-label {
+    font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+    color: var(--peb-text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+.peb-calc-root .peb-surface-value {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    pointer-events: all;
+}
+.peb-calc-root .peb-stepper-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid var(--peb-border-soft);
+    color: var(--peb-text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--peb-transition);
+    -webkit-tap-highlight-color: transparent;
+}
+.peb-calc-root .peb-stepper-btn:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: var(--peb-gold-500);
+    color: var(--peb-gold-500);
+}
+.peb-calc-root .peb-stepper-btn:active {
+    transform: scale(0.95);
+}
+.peb-calc-root .peb-stepper-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+.peb-calc-root .peb-surface-input {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 900;
+    color: var(--peb-green-text);
+    text-shadow: 0 2px 8px rgba(214,243,194,0.3);
+    background: var(--peb-surface-input);
+    border: 2px solid var(--peb-border-soft);
+    outline: none;
+    text-align: center;
+    width: 130px;
+    max-width: 160px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    line-height: 1.2;
+    transition: all var(--peb-transition);
+}
+.peb-calc-root .peb-surface-input:hover {
+    border-color: var(--peb-gold-500);
+}
+.peb-calc-root .peb-surface-input:focus {
+    border-color: var(--peb-gold-500);
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+}
+.peb-calc-root .peb-surface-input.error {
+    border-color: var(--peb-red);
+    animation: peb-shake 0.4s ease-in-out;
+}
+.peb-calc-root .peb-surface-unit {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    color: var(--peb-green-300);
+    font-weight: 700;
+    line-height: 1.2;
+}
+.peb-calc-root .peb-error-toast {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--peb-red);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(255, 107, 107, 0.4);
+    z-index: 10001;
+    animation: peb-toast-in 0.3s ease-out;
+}
+.peb-calc-root .peb-range-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: var(--peb-slider-track-height);
+    background: transparent;
+    cursor: grab;
+    -webkit-tap-highlight-color: transparent;
+    padding: 20px 0;
+    margin: -20px 0;
+}
+.peb-calc-root .peb-range-slider:focus {
+    outline: none;
+}
+.peb-calc-root .peb-range-slider:not(.interacted)::-webkit-slider-thumb {
+    animation: peb-pulse 1.5s ease-in-out infinite;
+}
+.peb-calc-root .peb-range-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: var(--peb-slider-track-height);
+    border-radius: 999px;
+    border: 1px solid var(--peb-border-soft);
+    background: linear-gradient(
+        to right,
+        var(--peb-green-300) 0%,
+        var(--peb-green-text) var(--peb-slider-progress),
+        rgba(255,255,255,0.1) var(--peb-slider-progress),
+        rgba(255,255,255,0.1) 100%
+    );
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
+}
+.peb-calc-root .peb-range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: var(--peb-thumb-size);
+    height: var(--peb-thumb-size);
+    margin-top: calc((var(--peb-thumb-size) - var(--peb-slider-track-height)) / -2);
+    border-radius: 50%;
+    background-color: rgba(28,38,54,0.92);
+    background-image: var(--peb-pebify-logo);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 82%;
+    border: 3px solid rgba(255,215,0,0.9);
+    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.6), inset 0 0 0 6px white;
+    cursor: grab;
+    transition: transform var(--peb-transition), box-shadow var(--peb-transition);
+}
+.peb-calc-root .peb-range-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 30px rgba(255,199,0,0.55), inset 0 0 0 6px white;
+}
+.peb-calc-root .peb-range-slider::-webkit-slider-thumb:active {
+    cursor: grabbing;
+    transform: scale(1.02);
+}
+.peb-calc-root .peb-range-slider::-moz-range-track {
+    width: 100%;
+    height: var(--peb-slider-track-height);
+    border-radius: 999px;
+    border: 1px solid var(--peb-border-soft);
+    background: rgba(255,255,255,0.1);
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
+}
+.peb-calc-root .peb-range-slider::-moz-range-progress {
+    height: var(--peb-slider-track-height);
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--peb-green-300), var(--peb-green-text));
+}
+.peb-calc-root .peb-range-slider::-moz-range-thumb {
+    width: var(--peb-thumb-size);
+    height: var(--peb-thumb-size);
+    border-radius: 50%;
+    background-color: rgba(28,38,54,0.92);
+    background-image: var(--peb-pebify-logo);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 82%;
+    border: 3px solid rgba(255,215,0,0.9);
+    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.6), inset 0 0 0 6px white;
+    cursor: grab;
+    transition: transform var(--peb-transition), box-shadow var(--peb-transition);
+}
+.peb-calc-root .peb-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    color: var(--peb-text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+    padding: 0 0.25rem;
+}
+.peb-calc-root .peb-price-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--peb-border-soft);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    margin: 0.5rem 2rem 0;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+}
+.peb-calc-root .peb-main-price {
+    text-align: center;
+    margin: 0.75rem 0;
+}
+.peb-calc-root .peb-price-value {
+    font-size: clamp(4rem, 12vw, 5.5rem);
+    font-weight: 900;
+    color: var(--peb-green-text);
+    line-height: 0.9;
+    text-shadow: 0 4px 16px rgba(214,243,194,0.4);
+    display: inline-block;
+}
+.peb-calc-root .peb-price-value.slot-animate {
+    animation: peb-slot 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.peb-calc-root .peb-price-currency {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-weight: 800;
+    color: var(--peb-green-300);
+    margin-left: 0.25rem;
+    vertical-align: top;
+    line-height: 0.9;
+}
+.peb-calc-root .peb-price-ttc {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--peb-text-secondary);
+    font-weight: 600;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.peb-calc-root .peb-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(180deg, var(--peb-green-300) 0%, var(--peb-green-500) 100%);
+    color: var(--peb-text-primary);
+    border: none;
+    border-radius: 12px;
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--peb-transition-smooth);
+    box-shadow: var(--peb-shadow-green);
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    -webkit-tap-highlight-color: transparent;
+}
+.peb-calc-root .peb-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: peb-shine 3s ease-in-out infinite;
+}
+.peb-calc-root .peb-cta-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(59, 201, 127, 0.6);
+    filter: brightness(1.08);
+}
+.peb-calc-root .peb-cta-btn:active {
+    transform: translateY(-2px);
+}
+.peb-calc-root .peb-cta-btn span {
+    text-transform: uppercase;
+    z-index: 1;
+}
+.peb-calc-root .peb-calendar {
+    --cal-w: 42px;
+    --cal-h: 45px;
+    --cal-header-h: 14px;
+    --cal-radius: 8px;
+    --cal-accent: var(--peb-red);
+    position: relative;
+    display: inline-block;
+    width: var(--cal-w);
+    height: var(--cal-h);
+    border-radius: var(--cal-radius);
+    background: #fff;
+    border: 2px solid var(--cal-accent);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.18);
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+}
+.peb-calc-root .peb-cta-btn:hover .peb-calendar {
+    transform: translateY(-1px);
+}
+.peb-calc-root .peb-calendar::before {
+    content: attr(data-month);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: var(--cal-header-h);
+    display: grid;
+    place-items: center;
+    background: var(--cal-accent);
+    color: #fff;
+    font: 700 clamp(7px, calc(var(--cal-w) * 0.28), 11px)/1.1 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-radius: calc(var(--cal-radius) - 1px) calc(var(--cal-radius) - 1px) 0 0;
+}
+.peb-calc-root .peb-calendar::after {
+    content: attr(data-day);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--cal-header-h);
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    color: #111;
+    font: 800 clamp(12px, calc(var(--cal-w) * 0.46), 18px)/1.05 'Poppins', sans-serif;
+    font-variant-numeric: tabular-nums;
+}
+.peb-calc-root .peb-modal-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--peb-transition-smooth), visibility var(--peb-transition-smooth);
+}
+.peb-calc-root .peb-modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+.peb-calc-root .peb-modal {
+    background: var(--peb-surface-card);
+    border: 1px solid var(--peb-border-soft);
+    border-radius: 24px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    transform: scale(0.9);
+    transition: transform var(--peb-transition-smooth);
+}
+.peb-calc-root .peb-modal-overlay.show .peb-modal {
+    transform: scale(1);
+}
+.peb-calc-root .peb-modal-header {
+    background: var(--peb-navy-800);
+    border-bottom: 1px solid var(--peb-border-soft);
+    padding: 1.5rem 2rem;
+    border-radius: 24px 24px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.peb-calc-root .peb-modal-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    color: var(--peb-green-text);
+    margin: 0;
+}
+.peb-calc-root .peb-modal-close {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: var(--peb-text-primary);
+    cursor: pointer;
+    transition: all var(--peb-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+.peb-calc-root .peb-modal-close:hover {
+    background: rgba(255,255,255,0.2);
+    transform: rotate(90deg);
+}
+.peb-calc-root .peb-modal-close svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+.peb-calc-root .peb-modal-body {
+    padding: 2rem;
+}
+.peb-calc-root .peb-modal-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed rgba(255,255,255,0.08);
+}
+.peb-calc-root .peb-modal-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.peb-calc-root .peb-modal-section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--peb-gold-500);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.peb-calc-root .peb-modal-section-icon {
+    width: 22px;
+    height: 22px;
+    fill: var(--peb-gold-500);
+    flex-shrink: 0;
+}
+.peb-calc-root .peb-modal-section-icon.stroke-icon {
+    fill: none;
+    stroke: var(--peb-gold-500);
+}
+.peb-calc-root .peb-modal-section p {
+    color: #E8EDF5;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+}
+.peb-calc-root .peb-modal-section ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 1rem 0 !important;
+}
+.peb-calc-root .peb-modal-section li {
+    color: #E8EDF5;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    list-style: none !important;
+}
+.peb-calc-root .peb-modal-section li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--peb-green-300);
+    font-weight: 900;
+}
+.peb-calc-root .peb-accordion {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+.peb-calc-root .peb-accordion summary {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--peb-gold-500);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background var(--peb-transition);
+    list-style: none !important;
+    font-size: 1rem;
+}
+.peb-calc-root .peb-accordion summary::-webkit-details-marker {
+    display: none;
+}
+.peb-calc-root .peb-accordion summary::marker {
+    content: none !important;
+    display: none !important;
+}
+.peb-calc-root .peb-accordion summary:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+.peb-calc-root .peb-accordion summary::after {
+    content: '\25BC';
+    font-size: 0.7rem;
+    transition: transform var(--peb-transition);
+}
+.peb-calc-root .peb-accordion[open] summary::after {
+    transform: rotate(180deg);
+}
+.peb-calc-root .peb-accordion-content {
+    padding: 1rem 1.5rem;
+    color: #E8EDF5;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.peb-calc-root .peb-accordion-content p {
+    margin-bottom: 0.75rem;
+}
+.peb-calc-root .peb-accordion-content strong {
+    color: var(--peb-text-primary);
+    font-weight: 700;
+}
+.peb-calc-root .peb-accordion-content ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0.5rem 0 !important;
+}
+.peb-calc-root .peb-accordion-content li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    list-style: none !important;
+}
+.peb-calc-root .peb-accordion-content li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--peb-green-300);
+    font-weight: 900;
+}
+.peb-calc-root .peb-accordion-content a {
+    color: var(--peb-gold-500);
+}
+@media (max-width: 768px) {
+    .peb-calc-root .peb-calculator-column {
+        padding: 2rem 1.5rem;
+        border-radius: 24px;
+    }
+}
+@media (max-width: 576px) {
+    .peb-calc-root {
+        padding: 1rem 0.5rem;
+        --peb-thumb-size: 52px;
+    }
+    .peb-calc-root .peb-calculator-column {
+        padding: 2rem 1rem;
+        border-radius: 20px;
+    }
+    .peb-calc-root .peb-tabs {
+        gap: 0.15rem;
+        padding: 0 0.5rem;
+        top: -35px;
+    }
+    .peb-calc-root .peb-calc-with-tabs {
+        margin-top: 2rem;
+    }
+    .peb-calc-root .peb-tab {
+        padding: 0.6rem 0.25rem 0.8rem;
+        font-size: 0.6rem;
+        min-height: 68px;
+    }
+    .peb-calc-root .peb-tab-label {
+        min-height: 2.6em;
+        font-size: 0.6rem;
+    }
+    .peb-calc-root .peb-tab-icon {
+        width: 1rem;
+        height: 1rem;
+    }
+    .peb-calc-root .peb-tab.active .peb-tab-icon {
+        width: 1.15rem;
+        height: 1.15rem;
+    }
+    .peb-calc-root .peb-tab.active .peb-tab-label {
+        font-size: 0.65rem;
+    }
+    .peb-calc-root .peb-calc-card {
+        padding: 3rem 1rem 1.5rem;
+    }
+    .peb-calc-root .peb-calc-content {
+        min-height: 420px;
+        gap: 0.75rem;
+    }
+    .peb-calc-root .peb-premium-badge {
+        padding: 0.15rem 0.35rem;
+        font-size: 0.5rem;
+        top: 14px;
+        gap: 0.2rem;
+        border-radius: 14px;
+        border-width: 1.5px;
+    }
+    .peb-calc-root .peb-premium-badge .badge-icon {
+        width: 0.6rem;
+        height: 0.6rem;
+    }
+    .peb-calc-root .peb-slider-container {
+        padding: 7.5rem 0.5rem 1.5rem;
+    }
+    .peb-calc-root .peb-surface-floating {
+        top: 18px;
+        gap: 0.5rem;
+    }
+    .peb-calc-root .peb-surface-label {
+        font-size: 0.7rem;
+    }
+    .peb-calc-root .peb-surface-input {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        width: 100px;
+        max-width: 120px;
+    }
+    .peb-calc-root .peb-surface-unit {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+    }
+    .peb-calc-root .peb-stepper-btn {
+        width: 32px;
+        height: 32px;
+    }
+    .peb-calc-root .peb-stepper-btn svg {
+        width: 12px;
+        height: 12px;
+    }
+    .peb-calc-root .peb-price-box {
+        padding: 0.875rem 1rem;
+        margin: 0.5rem 0 0;
+    }
+    .peb-calc-root .peb-slider-zone {
+        margin: 0.5rem 0 0.75rem;
+        padding-top: 1rem;
+    }
+    .peb-calc-root .peb-slider-labels {
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+    }
+    .peb-calc-root .peb-modal-close {
+        width: 48px;
+        height: 48px;
+    }
+    .peb-calc-root .peb-modal-header {
+        padding: 1rem 1.5rem;
+    }
+    .peb-calc-root .peb-modal-body {
+        padding: 1.5rem;
+    }
+    .peb-calc-root .peb-modal {
+        max-height: 90vh;
+    }
+}
+@media (max-width: 380px) {
+    .peb-calc-root .peb-premium-badge {
+        padding: 0.12rem 0.3rem;
+        font-size: 0.46rem;
+        gap: 0.15rem;
+        border-width: 1px;
+        top: 12px;
+    }
+    .peb-calc-root .peb-premium-badge .badge-icon {
+        width: 0.55rem;
+        height: 0.55rem;
+    }
+    .peb-calc-root .peb-tab {
+        padding: 0.5rem 0.2rem 0.7rem;
+    }
+    .peb-calc-root .peb-slider-container {
+        padding: 7rem 0.5rem 1.5rem;
+    }
+    .peb-calc-root .peb-surface-floating {
+        top: 16px;
+    }
+    .peb-calc-root .peb-surface-input {
+        font-size: clamp(1.5rem, 4.5vw, 2rem);
+        width: 85px;
+        max-width: 100px;
+    }
+    .peb-calc-root .peb-stepper-btn {
+        width: 28px;
+        height: 28px;
+    }
+}
+@media (min-width: 768px) {
+    .peb-calc-root .peb-calculator-column {
+        max-width: 700px;
+    }
+    .peb-calc-root .peb-calculator-wrapper {
+        max-width: 600px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .peb-calc-root *,
+    .peb-calc-root *::before,
+    .peb-calc-root *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
+<div class="peb-calc-root">
+    <a class="visually-hidden" href="#calculateur" id="skip">Aller au calculateur</a>
+    <div class="peb-calculator-column" id="calculateur">
+        <div class="peb-calculator-wrapper">
+            <div class="peb-calc-with-tabs">
+                <div class="peb-tabs" role="tablist" aria-label="Types de biens">
+                    <button class="peb-tab active" data-type="appartement" role="tab" aria-selected="true" aria-controls="panel-appartement" id="tab-appartement" tabindex="0">
+                        <svg class="peb-tab-icon" aria-hidden="true"><use href="#icon-building"/></svg>
+                        <span class="peb-tab-label">Appartement</span>
+                    </button>
+                    <button class="peb-tab" data-type="duplex" role="tab" aria-selected="false" aria-controls="panel-duplex" id="tab-duplex" tabindex="-1">
+                        <svg class="peb-tab-icon stroke-icon" aria-hidden="true"><use href="#icon-stairs"/></svg>
+                        <span class="peb-tab-label">Duplex+</span>
+                    </button>
+                    <button class="peb-tab" data-type="maison" role="tab" aria-selected="false" aria-controls="panel-maison" id="tab-maison" tabindex="-1">
+                        <svg class="peb-tab-icon" aria-hidden="true"><use href="#icon-home"/></svg>
+                        <span class="peb-tab-label">Maison</span>
+                    </button>
+                </div>
+                <div class="peb-tabpanels">
+                    <div id="panel-appartement" role="tabpanel" aria-labelledby="tab-appartement">
+                        <div class="peb-calc-card">
+                            <button class="peb-premium-badge" id="premium-badge" aria-expanded="false" aria-controls="info-modal" aria-label="Informations et avantages">
+                                <svg class="badge-icon" aria-hidden="true"><use href="#icon-info"/></svg>
+                                <span>INFOS-CLES</span>
+                            </button>
+                            <div class="peb-calc-content">
+                                <div class="peb-slider-zone">
+                                    <div class="peb-slider-container">
+                                        <div class="peb-surface-floating" aria-live="polite">
+                                            <div class="peb-surface-label">Superficie</div>
+                                            <div class="peb-surface-value">
+                                                <button class="peb-stepper-btn" id="stepper-minus" aria-label="Diminuer la superficie">
+                                                    <svg><use href="#icon-minus"/></svg>
+                                                </button>
+                                                <input type="text"
+                                                       inputmode="numeric"
+                                                       pattern="[0-9]*"
+                                                       class="peb-surface-input"
+                                                       id="surface-input"
+                                                       value="30"
+                                                       aria-label="Superficie en metres carres">
+                                                <span class="peb-surface-unit" aria-hidden="true">m2</span>
+                                                <button class="peb-stepper-btn" id="stepper-plus" aria-label="Augmenter la superficie">
+                                                    <svg><use href="#icon-plus"/></svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <input type="range"
+                                               class="peb-range-slider"
+                                               id="surface-slider"
+                                               min="18"
+                                               max="450"
+                                               step="1"
+                                               value="30"
+                                               aria-label="Ajuster la superficie"
+                                               aria-valuetext="30 metres carres">
+                                    </div>
+                                    <div class="peb-slider-labels">
+                                        <span id="min-label">18 m2</span>
+                                        <span id="max-label">450 m2</span>
+                                    </div>
+                                </div>
+                                <div class="peb-price-box">
+                                    <div class="peb-main-price" aria-live="polite" aria-atomic="true">
+                                        <span class="peb-price-value" id="current-price">105</span>
+                                        <span class="peb-price-currency" aria-hidden="true">EUR</span>
+                                        <div class="peb-price-ttc">TTC - Tout compris</div>
+                                    </div>
+                                </div>
+                                <button class="peb-cta-btn" id="cta-button" aria-label="Prendre rendez-vous">
+                                    <span class="peb-calendar" id="calendar-icon" aria-hidden="true"></span>
+                                    <span>Prendre rendez-vous</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="panel-duplex" role="tabpanel" aria-labelledby="tab-duplex" hidden inert></div>
+                    <div id="panel-maison" role="tabpanel" aria-labelledby="tab-maison" hidden inert></div>
+                </div>
+            </div>
+            <div class="peb-modal-overlay" id="info-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+                <div class="peb-modal">
+                    <div class="peb-modal-header">
+                        <h2 class="peb-modal-title" id="modal-title">Informations completes</h2>
+                        <button class="peb-modal-close" aria-label="Fermer">
+                            <svg><use href="#icon-close"/></svg>
+                        </button>
+                    </div>
+                    <div class="peb-modal-body" id="modal-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * PEBIFY CALCULATEUR PEB — Version 2.0 Optimisée
+ */
+(function() {
+    'use strict';
+    
+    var CONFIG = {
+        appartement: {
+            label: 'Appartement',
+            iconId: 'icon-building',
+            min: 18,
+            max: 450,
+            default: 30,
+            pivot: 300,
+            tarif: [
+                {min:0,max:30,prix:105}, 
+                {min:31,max:50,prix:115}, 
+                {min:51,max:75,prix:140},
+                {min:76,max:100,prix:155},
+                {min:101,max:125,prix:180},
+                {min:126,max:150,prix:200}, 
+                {min:151,max:200,prix:225}, 
+                {min:201,max:250,prix:240}, 
+                {min:251,max:300,prix:245}
+            ],
+            basePrice: 245,
+            info: {
+                title: 'Appartement',
+                iconId: 'icon-building',
+                price: '105 € TTC',
+                duration: '30 à 45 minutes',
+                examples: ['Studio, kot, appartement', 'Penthouse ou rez-de-chaussée']
+            }
+        },
+        duplex: {
+            label: 'Duplex / Triplex',
+            iconId: 'icon-stairs',
+            isStroke: true,
+            min: 18,
+            max: 450,
+            default: 75,
+            pivot: 350,
+            tarif: [
+                {min:0,max:75,prix:225}, {min:76,max:100,prix:225}, {min:101,max:125,prix:225},
+                {min:126,max:150,prix:225}, {min:151,max:200,prix:225}, {min:201,max:250,prix:255},
+                {min:251,max:300,prix:255}, {min:301,max:350,prix:285}
+            ],
+            basePrice: 285,
+            info: {
+                title: 'Duplex / Triplex',
+                iconId: 'icon-stairs',
+                isStroke: true,
+                price: '225 € TTC',
+                duration: '45 à 75 minutes',
+                examples: ['Duplex, triplex, ou quadruplex', 'Appartement sur plusieurs niveaux']
+            }
+        },
+        maison: {
+            label: 'Maison',
+            iconId: 'icon-home',
+            min: 18,
+            max: 500,
+            default: 100,
+            pivot: 450,
+            tarif: [
+                {min:0,max:100,prix:235}, {min:101,max:150,prix:245}, {min:151,max:200,prix:245},
+                {min:201,max:250,prix:275}, {min:251,max:300,prix:295}, {min:301,max:350,prix:335},
+                {min:351,max:400,prix:365}, {min:401,max:450,prix:395}
+            ],
+            basePrice: 395,
+            info: {
+                title: 'Maison',
+                iconId: 'icon-home',
+                price: '235 € TTC',
+                duration: '60 à 90 minutes',
+                examples: ['Villa, pavillon, bungalow', 'Maison 4 façades avec grand jardin']
+            }
+        }
+    };
+    
+    var MONTHS = ['JAN','FÉV','MAR','AVR','MAI','JUN','JUL','AOÛ','SEP','OCT','NOV','DÉC'];
+    
+    var currentType = 'appartement';
+    var startPrice = null;
+    var inputDebounceTimer = null;
+    var modalContentType = null;
+    var isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var lastFocused = null;
+    
+    var $ = function(sel, ctx) { return (ctx || document).querySelector(sel); };
+    var $$ = function(sel, ctx) { return (ctx || document).querySelectorAll(sel); };
+    
+    var els = {
+        slider: $('#surface-slider'),
+        input: $('#surface-input'),
+        floating: $('.peb-surface-floating'),
+        price: $('#current-price'),
+        minLabel: $('#min-label'),
+        maxLabel: $('#max-label'),
+        cta: $('#cta-button'),
+        calendar: $('#calendar-icon'),
+        modal: $('#info-modal'),
+        modalBody: $('#modal-body'),
+        badge: $('#premium-badge'),
+        modalClose: $('.peb-modal-close'),
+        tabs: $('.peb-tabs'),
+        card: $('.peb-calc-card'),
+        sliderContainer: $('.peb-slider-container'),
+        stepperMinus: $('#stepper-minus'),
+        stepperPlus: $('#stepper-plus'),
+        panels: {
+            appartement: $('#panel-appartement'),
+            duplex: $('#panel-duplex'),
+            maison: $('#panel-maison')
+        }
+    };
+    
+    var getConfig = function() { return CONFIG[currentType]; };
+    
+    function initCalendar() {
+        var now = new Date();
+        var day, month;
+        try {
+            var parts = new Intl.DateTimeFormat('fr-BE', {
+                timeZone: 'Europe/Brussels',
+                day: 'numeric',
+                month: 'numeric'
+            }).formatToParts(now);
+            day = parts.find(function(x) { return x.type === 'day'; }).value;
+            month = MONTHS[parseInt(parts.find(function(x) { return x.type === 'month'; }).value, 10) - 1];
+        } catch(e) {
+            day = now.getDate();
+            month = MONTHS[now.getMonth()];
+        }
+        els.calendar.setAttribute('data-day', day);
+        els.calendar.setAttribute('data-month', month);
+    }
+    
+    function calculatePrice(surface) {
+        var cfg = getConfig();
+        var bounded = Math.max(cfg.min, Math.min(surface, cfg.max));
+        var match = null;
+        
+        for (var i = 0; i < cfg.tarif.length; i++) {
+            var t = cfg.tarif[i];
+            if (bounded >= t.min && bounded <= t.max) {
+                match = t;
+                break;
+            }
+        }
+        
+        if (match) return match.prix;
+        
+        if (bounded > cfg.pivot) {
+            var pivotMatch = null;
+            for (var j = 0; j < cfg.tarif.length; j++) {
+                if (cfg.pivot >= cfg.tarif[j].min && cfg.pivot <= cfg.tarif[j].max) {
+                    pivotMatch = cfg.tarif[j];
+                    break;
+                }
+            }
+            var pivotPrice = pivotMatch ? pivotMatch.prix : cfg.basePrice;
+            return pivotPrice + (bounded - cfg.pivot);
+        }
+        
+        return cfg.tarif[0] ? cfg.tarif[0].prix : cfg.basePrice;
+    }
+    
+    function updateFloatingPosition() {
+        var cfg = getConfig();
+        var value = parseInt(els.slider.value);
+        var percentage = ((value - cfg.min) / (cfg.max - cfg.min)) * 100;
+        
+        var rect = els.sliderContainer.getBoundingClientRect();
+        var padding = parseFloat(getComputedStyle(els.sliderContainer).paddingLeft);
+        var trackWidth = rect.width - (padding * 2);
+        
+        var position = padding + (trackWidth * percentage / 100);
+        var halfWidth = els.floating.offsetWidth / 2;
+        
+        position = Math.max(padding + halfWidth, Math.min(rect.width - padding - halfWidth, position));
+        els.floating.style.setProperty('--floating-position', position + 'px');
+    }
+    
+    function updateSliderProgress() {
+        var cfg = getConfig();
+        var value = parseInt(els.slider.value);
+        var progress = ((value - cfg.min) / (cfg.max - cfg.min)) * 100;
+        els.slider.style.setProperty('--peb-slider-progress', progress + '%');
+    }
+    
+    function updateUIRealtime() {
+        var value = parseInt(els.slider.value);
+        els.input.value = value;
+        els.price.textContent = calculatePrice(value);
+        els.slider.setAttribute('aria-valuetext', value + ' mètres carrés');
+        updateSliderProgress();
+        updateFloatingPosition();
+    }
+    
+    function animatePrice(from, to) {
+        if (isReducedMotion || from === to) {
+            els.price.textContent = to;
+            return;
+        }
+        
+        els.price.classList.add('slot-animate');
+        var startTime = performance.now();
+        var duration = 500;
+        
+        function step(now) {
+            var elapsed = now - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            var ease = progress < 0.5 
+                ? 2 * progress * progress 
+                : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+            
+            els.price.textContent = Math.round(from + (to - from) * ease);
+            
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                els.price.textContent = to;
+                els.price.classList.remove('slot-animate');
+            }
+        }
+        requestAnimationFrame(step);
+    }
+    
+    function updateUIWithAnimation() {
+        var price = calculatePrice(parseInt(els.slider.value));
+        if (startPrice !== null && startPrice !== price) {
+            animatePrice(startPrice, price);
+        } else {
+            els.price.textContent = price;
+        }
+        startPrice = null;
+    }
+    
+    function showError(message) {
+        var root = $('.peb-calc-root');
+        var existing = $('.peb-error-toast', root);
+        if (existing) existing.remove();
+        
+        var toast = document.createElement('div');
+        toast.className = 'peb-error-toast';
+        toast.textContent = message;
+        toast.setAttribute('role', 'alert');
+        root.appendChild(toast);
+        
+        setTimeout(function() {
+            toast.style.animation = 'peb-toast-in 0.3s ease-out reverse';
+            toast.addEventListener('animationend', function() { toast.remove(); }, {once: true});
+        }, 3000);
+    }
+    
+    function validateInput() {
+        var cfg = getConfig();
+        var value = parseInt(els.input.value);
+        
+        els.input.classList.remove('error');
+        
+        if (isNaN(value) || els.input.value.trim() === '') {
+            showError('Entrez une superficie entre ' + cfg.min + ' et ' + cfg.max + ' m²');
+            els.input.classList.add('error');
+            value = cfg.default;
+        } else if (value < cfg.min) {
+            showError('Superficie minimum : ' + cfg.min + ' m²');
+            els.input.classList.add('error');
+            value = cfg.min;
+        } else if (value > cfg.max) {
+            showError('Superficie maximum : ' + cfg.max + ' m²');
+            els.input.classList.add('error');
+            value = cfg.max;
+        }
+        
+        els.input.value = value;
+        els.slider.value = value;
+        startPrice = calculatePrice(value);
+        updateUIWithAnimation();
+        updateUIRealtime();
+        
+        return value;
+    }
+    
+    function setActiveTab(tabEl) {
+        if (!tabEl || tabEl.classList.contains('active')) return;
+        
+        var allTabs = $$('.peb-tab', els.tabs);
+        for (var i = 0; i < allTabs.length; i++) {
+            allTabs[i].classList.remove('active');
+            allTabs[i].setAttribute('aria-selected', 'false');
+            allTabs[i].setAttribute('tabindex', '-1');
+        }
+        
+        tabEl.classList.add('active');
+        tabEl.setAttribute('aria-selected', 'true');
+        tabEl.setAttribute('tabindex', '0');
+        
+        var targetId = tabEl.getAttribute('aria-controls');
+        var panelKeys = Object.keys(els.panels);
+        for (var j = 0; j < panelKeys.length; j++) {
+            els.panels[panelKeys[j]].hidden = true;
+            els.panels[panelKeys[j]].setAttribute('inert', '');
+        }
+        
+        var target = document.getElementById(targetId);
+        if (target) {
+            target.hidden = false;
+            target.removeAttribute('inert');
+            if (els.card.parentNode !== target) {
+                target.appendChild(els.card);
+            }
+        }
+        
+        currentType = tabEl.dataset.type;
+        initUI();
+        tabEl.focus();
+        
+        requestAnimationFrame(function() {
+            requestAnimationFrame(positionBadge);
+        });
+    }
+    
+    function positionBadge() {
+        var activeTab = $('.peb-tab.active');
+        if (!activeTab || !els.badge || !els.card) return;
+        
+        var tabRect = activeTab.getBoundingClientRect();
+        var cardRect = els.card.getBoundingClientRect();
+        var tabsRect = els.tabs.getBoundingClientRect();
+        
+        var centerX = tabRect.left + (tabRect.width / 2) - tabsRect.left;
+        var top = tabRect.bottom - cardRect.top + 4;
+        
+        els.badge.style.left = centerX + 'px';
+        els.badge.style.maxWidth = (tabRect.width * 0.9) + 'px';
+        els.badge.style.top = top + 'px';
+        els.badge.classList.add('positioned');
+    }
+    
+    function getModalContent() {
+        var info = getConfig().info;
+        var strokeClass = info.isStroke ? ' stroke-icon' : '';
+        
+        return '<div class="peb-modal-section">'
+            + '<h3 class="peb-modal-section-title">'
+            + '<svg class="peb-modal-section-icon' + strokeClass + '"><use href="#' + info.iconId + '"/></svg>'
+            + '<span>' + info.title + '</span>'
+            + '</h3>'
+            + '<p><strong>À partir de ' + info.price + '</strong> (selon superficie)</p>'
+            + '<p>⏱ <strong>Durée :</strong> ' + info.duration + '</p>'
+            + '<p><strong>Exemples :</strong></p>'
+            + '<ul>'
+            + info.examples.map(function(ex) { return '<li>' + ex + '</li>'; }).join('')
+            + '</ul>'
+            + '</div>'
+            + '<details class="peb-accordion">'
+            + '<summary>💰 Tarifs ultra transparents</summary>'
+            + '<div class="peb-accordion-content">'
+            + '<p><strong>Prix affiché = Prix final</strong></p>'
+            + '<p><strong>Mes garanties :</strong></p>'
+            + '<ul>'
+            + '<li>Zéro frais caché</li>'
+            + '<li>Aucun supplément surprise</li>'
+            + '<li>Prix fixe garanti</li>'
+            + '<li>Paiement après intervention</li>'
+            + '</ul>'
+            + '</div>'
+            + '</details>'
+            + '<details class="peb-accordion">'
+            + '<summary>📅 Rendez-vous rapide garanti</summary>'
+            + '<div class="peb-accordion-content">'
+            + '<ul>'
+            + '<li>Disponible sous 24h ouvrables</li>'
+            + '<li>Flexibilité horaire : du lundi au samedi</li>'
+            + '<li>Déplacement gratuit dans toute la région de Bruxelles</li>'
+            + '<li>Expert certifié (n° 001862747)</li>'
+            + '</ul>'
+            + '</div>'
+            + '</details>'
+            + '<details class="peb-accordion">'
+            + '<summary>🏆 Engagement qualité</summary>'
+            + '<div class="peb-accordion-content">'
+            + '<ul>'
+            + '<li>Certificateur PEB agréé (n° 001862747)</li>'
+            + '<li>Respect strict des normes en vigueur</li>'
+            + '<li>Rapport détaillé avec conseils personnalisés</li>'
+            + '<li>Votre satisfaction est ma priorité</li>'
+            + '</ul>'
+            + '</div>'
+            + '</details>'
+            + '<details class="peb-accordion">'
+            + '<summary>⚖️ Informations légales</summary>'
+            + '<div class="peb-accordion-content">'
+            + '<p>En prenant rendez-vous, vous acceptez mes conditions générales de service.</p>'
+            + '<p style="margin-top: 0.5rem;">'
+            + '<a href="https://pebify.be/conditions-generales/" target="_blank" rel="noopener">📜 Conditions générales</a><br>'
+            + '<a href="https://pebify.be/politique-de-confidentialite/" target="_blank" rel="noopener">🔒 Politique de confidentialité</a>'
+            + '</p>'
+            + '</div>'
+            + '</details>';
+    }
+    
+    function handleModalKeydown(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+            return;
+        }
+        
+        if (e.key === 'Tab') {
+            var focusable = els.modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), summary');
+            var first = focusable[0];
+            var last = focusable[focusable.length - 1];
+            
+            if (e.shiftKey && document.activeElement === first) {
+                last.focus();
+                e.preventDefault();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                first.focus();
+                e.preventDefault();
+            }
+        }
+    }
+    
+    function openModal() {
+        lastFocused = document.activeElement;
+        
+        if (modalContentType !== currentType) {
+            els.modalBody.innerHTML = getModalContent();
+            modalContentType = currentType;
+        }
+        
+        els.modal.classList.add('show');
+        els.modal.setAttribute('aria-hidden', 'false');
+        els.badge.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        
+        document.addEventListener('keydown', handleModalKeydown);
+        
+        els.modalClose.focus();
+    }
+    
+    function closeModal() {
+        els.modal.classList.remove('show');
+        els.modal.setAttribute('aria-hidden', 'true');
+        els.badge.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        
+        document.removeEventListener('keydown', handleModalKeydown);
+        
+        if (lastFocused) lastFocused.focus();
+    }
+    
+    function handleCta() {
+        var cfg = getConfig();
+        var surface = parseInt(els.slider.value);
+        var price = calculatePrice(surface);
+        
+        try {
+            sessionStorage.setItem('peb_calc', JSON.stringify({
+                type: cfg.label,
+                surface: surface,
+                price: price,
+                code: 'peb_calc_cta'
+            }));
+        } catch(e) {}
+        
+        window.location.href = 'https://pebify.be/contact/#form';
+    }
+    
+    function initUI() {
+        var cfg = getConfig();
+        
+        els.minLabel.textContent = cfg.min + ' m²';
+        els.maxLabel.textContent = cfg.max + ' m²';
+        els.slider.min = cfg.min;
+        els.slider.max = cfg.max;
+        els.input.setAttribute('min', cfg.min);
+        els.input.setAttribute('max', cfg.max);
+        els.slider.value = cfg.default;
+        els.input.value = cfg.default;
+        
+        startPrice = calculatePrice(cfg.default);
+        updateUIWithAnimation();
+        updateUIRealtime();
+        
+        modalContentType = null;
+    }
+    
+    function init() {
+        initCalendar();
+        initUI();
+        
+        els.slider.addEventListener('pointerdown', function() {
+            startPrice = calculatePrice(parseInt(els.slider.value));
+            els.slider.classList.add('interacted');
+        }, { passive: true });
+        
+        els.slider.addEventListener('input', updateUIRealtime);
+        els.slider.addEventListener('change', updateUIWithAnimation);
+        
+        els.input.addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+            
+            clearTimeout(inputDebounceTimer);
+            inputDebounceTimer = setTimeout(function() {
+                var cfg = getConfig();
+                var val = parseInt(e.target.value);
+                if (!isNaN(val) && val >= cfg.min && val <= cfg.max) {
+                    els.slider.value = val;
+                    startPrice = calculatePrice(val);
+                    updateUIWithAnimation();
+                    updateUIRealtime();
+                }
+            }, 600);
+        });
+        
+        els.input.addEventListener('blur', function() {
+            clearTimeout(inputDebounceTimer);
+            validateInput();
+        });
+        
+        els.input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                clearTimeout(inputDebounceTimer);
+                validateInput();
+                els.input.blur();
+            }
+        });
+        
+        function adjustSurface(delta) {
+            var cfg = getConfig();
+            var value = parseInt(els.input.value) || cfg.default;
+            value = Math.max(cfg.min, Math.min(cfg.max, value + delta));
+            els.input.value = value;
+            els.slider.value = value;
+            startPrice = calculatePrice(value);
+            updateUIWithAnimation();
+            updateUIRealtime();
+        }
+        
+        els.stepperMinus.addEventListener('click', function() { adjustSurface(-5); });
+        els.stepperPlus.addEventListener('click', function() { adjustSurface(5); });
+        
+        els.tabs.addEventListener('click', function(e) {
+            var tab = e.target.closest('.peb-tab');
+            if (tab) setActiveTab(tab);
+        });
+        
+        els.tabs.addEventListener('keydown', function(e) {
+            var tabs = Array.prototype.slice.call($$('.peb-tab', els.tabs));
+            var idx = -1;
+            for (var i = 0; i < tabs.length; i++) {
+                if (tabs[i].classList.contains('active')) { idx = i; break; }
+            }
+            var next = null;
+            
+            switch (e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                    next = (idx + 1) % tabs.length;
+                    break;
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                    next = (idx - 1 + tabs.length) % tabs.length;
+                    break;
+                case 'Home':
+                    next = 0;
+                    break;
+                case 'End':
+                    next = tabs.length - 1;
+                    break;
+                default:
+                    return;
+            }
+            
+            e.preventDefault();
+            setActiveTab(tabs[next]);
+        });
+        
+        els.badge.addEventListener('click', openModal);
+        els.modalClose.addEventListener('click', closeModal);
+        els.modal.addEventListener('click', function(e) {
+            if (e.target === els.modal) closeModal();
+        });
+        
+        els.modalBody.addEventListener('toggle', function(e) {
+            if (e.target.open && e.target.classList.contains('peb-accordion')) {
+                var allAccordions = $$('.peb-accordion', els.modalBody);
+                for (var i = 0; i < allAccordions.length; i++) {
+                    if (allAccordions[i] !== e.target && allAccordions[i].open) {
+                        allAccordions[i].open = false;
+                    }
+                }
+            }
+        }, true);
+        
+        els.cta.addEventListener('click', handleCta);
+        
+        window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function(e) {
+            isReducedMotion = e.matches;
+        });
+        
+        if ('ResizeObserver' in window) {
+            var ro = new ResizeObserver(function() {
+                requestAnimationFrame(function() {
+                    positionBadge();
+                    updateFloatingPosition();
+                });
+            });
+            ro.observe($('.peb-calculator-column'));
+        }
+        
+        requestAnimationFrame(function() {
+            positionBadge();
+            updateFloatingPosition();
+        });
+    }
+    
+    init();
+})();
+</script>
